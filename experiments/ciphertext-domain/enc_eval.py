@@ -143,13 +143,9 @@ if __name__ == "__main__":
     labels = data["issame_list"]
 
     dimensions = range(40,45)
-    dimensions = [44]
     mms = ["global", "per-feature"]
-    mms = [mms[0]]
     qs = ["global", "per-dimension"]
-    qs = [qs[0]]
-    bits = [2,3,4,5]
-    bits =[4]
+    bits =[4,5]
     for mm_strategy in mms:
         for q_strategy in qs:
             results = []
