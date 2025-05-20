@@ -1,0 +1,19 @@
+from crypto.EClib import EllipticCurve, Point, Generator
+
+def get_curve() -> EllipticCurve:
+    curve = EllipticCurve(
+        p=0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F,
+        a=0x0000000000000000000000000000000000000000000000000000000000000000,  # a = 0
+        b=0x0000000000000000000000000000000000000000000000000000000000000007  # b = 7
+    )
+    x = 0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798
+    y = 0x483ADA7726A3C4655DA4FBFC0E1108A8FD17B448A68554199C47D08FFB10D4B8
+    G = Point(curve, x, y)
+    n = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
+    h = 0x01
+    generator = Generator(G=G, h=h, n=n)
+    curve.set_generator(generator)
+    return curve
+
+# Create and export a pre-initialized curve instance
+secp256k1_curve = get_curve()

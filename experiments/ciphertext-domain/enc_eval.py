@@ -143,6 +143,7 @@ if __name__ == "__main__":
     labels = data["issame_list"]
 
     dimensions = range(40,45)
+    dimensions = [44]
     mms = ["global", "per-feature"]
     mms = [mms[0]]
     qs = ["global", "per-dimension"]
