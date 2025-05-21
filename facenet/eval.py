@@ -201,11 +201,11 @@ pairs = read_pairs(pairs_path)
 path_list, issame_list = get_paths(data_dir+'_cropped', pairs)
 embeddings = np.array([embeddings_dict[path] for path in path_list])
 issame_list = np.array(issame_list)
-print(embeddings.shape)
-print(issame_list.shape)
-## Save to a .npz file
-np.savez("pair_embeddings_ceci.npz", embeddings=embeddings, issame_list=issame_list)
+print(f"Pairs embeddings shape: {embeddings.shape}")
+print(f"Labels shape: {issame_list.shape}")
 
 tpr, fpr, accuracy, val, val_std, far, fp, fn = evaluate(embeddings, issame_list)
-print(accuracy)
-print(np.mean(accuracy))
+print(f"Mean accuracy {np.mean(accuracy)}")
+## Save to a .npz file
+np.savez("pair_embeddings_ceci.npz", embeddings=embeddings, issame_list=issame_list)
+print("Saved pair embeddings!")

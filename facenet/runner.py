@@ -109,8 +109,8 @@ embeddings = np.array(embeddings)
 classes = np.array(classes)
 
 ## Save to a .npz file
-np.savez("embeddings_last.npz", embeddings=embeddings, classes=classes)
+np.savez("embeddings_ceci.npz", embeddings=embeddings, classes=classes)
 
-with open("embeddings_dict_backup.pkl", "wb") as f:
+with open("embeddings_dict_ceci.pkl", "wb") as f:
     pickle.dump(embeddings_dict, f)
 print("Embeddings and dict saved successfully!")
