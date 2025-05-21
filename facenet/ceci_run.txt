@@ -1,0 +1,1 @@
+srun --partition=gpu --gres=gpu:1 --mem-per-gpu=4096  python runner.py
