@@ -20,7 +20,7 @@ dimensions = 44
 bw = 4
 loader = DataLoader()
 embeds1, embeds2, issame_list = loader.load_pairs(
-    "./data/pair_embeddings512.npz", dimensions=dimensions)
+    "./data/pair_embeddings_ceci.npz", dimensions=dimensions)
 
 embed_shape = loader.get_embed_shape()
 quantized1, quantized2, scale = quantize_simple(embeds1, embeds2, bw)

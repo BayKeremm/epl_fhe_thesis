@@ -74,7 +74,7 @@ dimensions = [i for i in range(40, 45)]
 dimensions = [44]
 bits = [2, 3, 4, 5]
 bits = [4]
-num_pairs = 10
+num_pairs = 100
 results = []
 minmax = True 
 
