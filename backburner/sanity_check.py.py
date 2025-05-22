@@ -8,9 +8,7 @@ def evaluate_lfw(embeddings: np.ndarray,
                  pca_dim: int = 44,
                  fpr_targets: list = [0.0001, 0.001, 0.01]):
     """
-    Perform 10-fold cross-validation on LFW pair embeddings.
-
-    Reduces embeddings to `pca_dim` dimensions using PCA trained on the training folds,
+    Perform 10-fold cross-validation on LFW pair embeddings after preprocessing pipeline
     then computes TPR at specified FPR targets on each test fold.
 
     Args:

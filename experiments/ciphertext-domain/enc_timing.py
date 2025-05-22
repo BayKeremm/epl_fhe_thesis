@@ -39,7 +39,6 @@ def sample_balanced_indices(labels, n_samples_per_class=50):
     # Combine and return
     combined_indices = np.concatenate([sampled_true_indices, sampled_false_indices])
     
-    # Optional: shuffle the combined indices
     np.random.shuffle(combined_indices)
     
     return combined_indices.tolist()
@@ -64,22 +63,20 @@ def quantize_simple(embeds1, embeds2, bits=8, signed=False):
         quantized2 = np.clip(np.round(embeds2  * scale), 0, max_qval).astype(dtype)
     return quantized1, quantized2, scale
 
-console = Console()
-
-
 def euclidian_clear(x, y):
     return np.sum((np.array(x) - np.array(y)) ** 2)
 
+
+console = Console()
 dimensions = [i for i in range(40, 45)]
-dimensions = [44]
-bits = [2, 3, 4, 5]
-bits = [4]
-num_pairs = 100
+bits = [4, 5]
+num_pairs = 300
 results = []
 minmax = True 
 
 for dim in dimensions:
     loader = DataLoader()
+    # Does global minmax by default
     embeds1, embeds2, issame_list = loader.load_pairs(
         "./data/pair_embeddings_ceci.npz", dimensions=dim, minmax=minmax)
     embed_shape = loader.get_embed_shape()
@@ -92,7 +89,6 @@ for dim in dimensions:
             total=len(bits) * num_pairs*2)
 
         for bit in bits:
-
             if minmax: 
                 assert np.all(embeds1 >= 0)
                 assert np.all(embeds2 >= 0)
@@ -154,6 +150,6 @@ for dim in dimensions:
             print(f"Mean time to calculate 1:1 match: {times.mean()} std: {times.std()}")
 
 # Save to CSV
-# df = pd.DataFrame(results)
-# df.to_csv("timings.csv", index=False)
-# console.print("[green bold]Results saved[/green bold]")
+df = pd.DataFrame(results)
+df.to_csv("./ciphertext-domain/results/enc_timings.csv", index=False)
+console.print("[green bold]Results saved[/green bold]")

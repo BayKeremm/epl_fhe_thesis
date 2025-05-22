@@ -4,10 +4,9 @@ from sklearn.decomposition import PCA
 from matplotlib.ticker import MaxNLocator
 
 def plot_variance_explained(embeddings, max_components=128, 
-                            thresholds=[0.9, 0.95], figsize=(14, 7)): # Set up a clean, professional style
+                            thresholds=[0.9, 0.95], figsize=(14, 7)): 
     plt.style.use('seaborn-v0_8-whitegrid')
 
-     # Increase default font sizes
     plt.rcParams.update({
         'font.size': 18,           # Base font size
         'axes.titlesize': 18,      # Title font size
@@ -16,7 +15,6 @@ def plot_variance_explained(embeddings, max_components=128,
         'ytick.labelsize': 16,     # Y-tick font size 
         'legend.fontsize': 16,     # Legend font size
     })   
-    # Define a consistent color palette
     colors = {
         'main_line': '#1f77b4',  # Blue
         'threshold': '#d62728',   # Red
@@ -35,7 +33,6 @@ def plot_variance_explained(embeddings, max_components=128,
     # Calculate cumulative explained variance
     cumulative_variance = np.cumsum(pca.explained_variance_ratio_)
     
-    # Create the figure with two subplots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=figsize)
     
     # Plot 1: Elbow curve (cumulative explained variance)
@@ -43,13 +40,11 @@ def plot_variance_explained(embeddings, max_components=128,
              marker='o', linestyle='-', markersize=4, color=colors['main_line'],
              linewidth=2, alpha=0.9)
     
-    # Set x-ticks for better readability
     ax1.xaxis.set_major_locator(MaxNLocator(integer=True))
     if max_components > 20:
         step = max(1, max_components // 10)
         ax1.set_xticks(np.arange(1, max_components + 1, step))
     
-    # Enhance axis labels and title
     ax1.set_xlabel('Number of Components', fontsize=16, fontweight='bold')
     ax1.set_ylabel('Cumulative Explained Variance', fontsize=16, fontweight='bold')
     ax1.set_title('Elbow Curve', fontsize=16, fontweight='bold')
@@ -83,8 +78,6 @@ def plot_variance_explained(embeddings, max_components=128,
                     bbox=dict(boxstyle="round,pad=0.2", facecolor='white', alpha=0.8))
     
     # Plot 2: Scree plot (individual explained variance)
-    # ax2.bar(range(1, max_components + 1), pca.explained_variance_ratio_, 
-    #         alpha=0.7, color=colors['main_line'])
     ax2.plot(range(1, max_components + 1), pca.explained_variance_ratio_, 
              marker='o', markersize=4, linestyle='-', color=colors["main_line"],
              linewidth=2, alpha=0.7)
@@ -118,7 +111,7 @@ def plot_variance_explained(embeddings, max_components=128,
     ax2.grid(True, linestyle='--', linewidth=0.5, alpha=0.3)
     
     # Adjust layout and add space for the annotation
-    plt.tight_layout(rect=[0, 0.05, 1, 0.95])
+    plt.tight_layout(rect=[0, 0.05, 1, 0.95]) #type:ignore
     
     return fig, pca
 

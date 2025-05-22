@@ -74,7 +74,7 @@ def evaluate_lfw(embeddings: np.ndarray,
     std_tprs = tprs.std(axis=1)
 
 
-    # Display results
+    # Display results suitable to copy paste to latex :)
     for i, fpr in enumerate(fpr_targets):
         print(f"TPR @ FPR={fpr*100:.2f}%: {mean_tprs[i]*100:.2f}$\\pm${std_tprs[i]*100:.2f}")
 

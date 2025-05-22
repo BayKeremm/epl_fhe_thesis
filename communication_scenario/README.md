@@ -17,4 +17,14 @@ The following interaction steps are  implemented:
     - For each authentication attempt, the client repeats the Schnorr identification to obtain a fresh challenge message. It then sends new encrypted face embeddings $\mathbf{\vec E}^*$ and the HMAC confirmation. The server verifies the confirmation, homomorphically compares $\mathbf{\vec E}$ and $\mathbf{\vec E}^*$ using its stored TFHE evaluation keys under client's ID, and returns the result of the comparison.
 
 ## How to run the code?
-TODO
+First the trusted party runs the following to generate server files:
+```
+PYTHONPATH=. python src/trusted.py
+```
+Which generates `server.zip`. 
+
+Then we can run the client and the server in different terminals:
+```
+PYTHONPATH=. python src/server.py 
+PYTHONPATH=. python src/client.py 
+```

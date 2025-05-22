@@ -105,8 +105,8 @@ def evaluate_lfw(embeddings: np.ndarray,
 
 
     # Display results
-    # for i, fpr in enumerate(fpr_targets):
-    #     print(f"TPR @ FPR={fpr*100:.2f}%: {mean_tprs[i]:.4f} ± {std_tprs[i]:.4f}")
+    for i, fpr in enumerate(fpr_targets):
+        print(f"TPR @ FPR={fpr*100:.2f}%: {mean_tprs[i]:.4f} ± {std_tprs[i]:.4f}")
 
     return mean_tprs, std_tprs
 
@@ -151,6 +151,6 @@ if __name__ == "__main__":
                         "TPR@0.1%": str(round(mean_tprs[1] * 100, 2))+"$\\pm$"+str(round(std_tprs[1] * 100, 2)),
                         "TPR@1%": str(round(mean_tprs[2] * 100, 2))+"$\\pm$"+str(round(std_tprs[2] * 100, 2)),
                     })
-            df = pd.DataFrame(results)
-            df.to_csv(f"./plaintext/results/fold_eval_{mm_strategy}_{q_strategy}.csv", index=False)
-            print(f"\nSaved results to fold_eval_{mm_strategy}_{q_strategy}.csv")
+            # df = pd.DataFrame(results)
+            # df.to_csv(f"./plaintext/results/fold_eval_{mm_strategy}_{q_strategy}.csv", index=False)
+            # print(f"\nSaved results to fold_eval_{mm_strategy}_{q_strategy}.csv")

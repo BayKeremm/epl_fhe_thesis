@@ -107,5 +107,5 @@ if __name__ == "__main__":
         # })
     # Convert to DataFrame and save
     df = pd.DataFrame(results)
-    df.to_csv("./plaintext/results/lfw_tpr_vs_dim.csv", index=False)
+    df.to_csv("./plaintext-domain/results/lfw_tpr_vs_dim.csv", index=False)
     print("\nSaved results to lfw_tpr_vs_dim.csv")

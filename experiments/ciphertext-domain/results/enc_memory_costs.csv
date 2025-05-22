@@ -1,0 +1,2 @@
+dimension,bit_width,MBW,compression,mean,std,eval_key_sizes_mb,ct_sizes_kb
+44,5,14,True,4.257185518741608,0.31320061105055685,325.5696105957031,1.2734375

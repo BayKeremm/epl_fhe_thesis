@@ -1,11 +1,8 @@
 import numpy as np
-from sklearn.decomposition import PCA
-
 
 def evaluate_lfw(embeddings: np.ndarray,
                  labels: np.ndarray,
                  n_folds: int = 10,
-                 pca_dim: int = 44,
                  fpr_targets: list = [0.0001, 0.001, 0.01]):
     # Split embeddings into pairs
     e1 = embeddings[0::2]

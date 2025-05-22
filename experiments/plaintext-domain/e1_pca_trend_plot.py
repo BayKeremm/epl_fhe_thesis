@@ -14,7 +14,7 @@ plt.rcParams.update({
     'ytick.labelsize': 16,     # Y-tick font size 
     'legend.fontsize': 16,     # Legend font size
 })   
-df = pd.read_csv("./plaintext/results/lfw_tpr_vs_dim.csv")
+df = pd.read_csv("./plaintext-domain/results/lfw_tpr_vs_dim.csv")
 # Convert to percentages
 dimensions = df["dim"].tolist()
 
@@ -79,7 +79,7 @@ title.set_fontweight('bold')
 
 # Adjust layout
 plt.tight_layout()
-plt.savefig("pca_performance_plot.pdf", dpi=300)
-# plt.show()
+# plt.savefig("pca_performance_plot.pdf", dpi=300)
+plt.show()
 
 
