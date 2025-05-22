@@ -14,7 +14,7 @@ Performance is reported using the **True Positive Rate (TPR)** at fixed **False 
 These experiments analyze how various preprocessing steps affect matching performance on unencrypted data. All evaluations use 10-fold cross-validation on the LFW dataset.
 
 - `e0_baseline`  
-  Establishes the baseline performance of 512-dimensional FaceNet embeddings without any preprocessing.  
+  Establishes the baseline performance of 512-dimensional FaceNet embeddings without any preprocessing. 
   → Refer to Section 5.1.1.
 
 - `e1_elbow_scree`  
@@ -34,7 +34,7 @@ These experiments analyze how various preprocessing steps affect matching perfor
   → Refer to Section 5.1.3.
 
 - `e3_full`  
-  Completes the plaintext pipeline by adding quantization on top of PCA and normalization. Reports final metrics.  
+  Completes the plaintext pipeline by adding quantization on top of PCA and normalization. Reports final metrics. 
   → Refer to Section 5.1.4.
 
 ---
