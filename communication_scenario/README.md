@@ -14,7 +14,7 @@ The following interaction steps are  implemented:
     - Using the session channel, the client transmits its encrypted face embeddings $\mathbf{\vec E}$ and the corresponding TFHE evaluation keys $\mathbf{\vec K_e}$, and a confirmation in the form of an HMAC-SHA256 over the challenge message. The server verifies the HMAC confirmation, then stores $\{\mathbf{\vec E},\mathbf{\vec K_e}\}$ under the client’s $ID$.
 
 - Client Authenticate
-    - For each authentication attempt, the client repeats the Schnorr identification to obtain a fresh challenge message. It then sends new encrypted face embeddings $\mathbf{\vec E}^*$ and the HMAC confirmation. The server verifies the confirmation, homomorphically compares $\mathbf{\vec E}$ and $\mathbf{\vec E}^*$ using its stored TFHE evaluation keys under client's ID, and returns the result of the comparison.
+    - For each authentication attempt, the client repeats the Schnorr identification to obtain a fresh challenge message. It then sends new encrypted face embeddings $\mathbf{\vec E}^\*$ and the HMAC confirmation. The server verifies the confirmation, homomorphically compares $\mathbf{\vec E}$ and $\mathbf{\vec E}^\*$ using its stored TFHE evaluation keys under client's ID, and returns the result of the comparison.
 
 ## How to run the code?
 Setup the environment, `concrete` works only with python 3.9 to 3.12 inclusive. 
